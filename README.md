@@ -24,9 +24,9 @@ project-root/
 ├── a2c_agent.py                # Custom A2C implementation
 ├── ppo_agent.py                # Custom PPO implementation  
 ├── sac_agent.py                # Custom SAC implementation
-├── run_a2c_experiments.py      # A2C experiment runner
-├── run_ppo_experiments.py      # PPO experiment runner
-├── run_sac_experiments.py      # SAC experiment runner
+├── run_a2c.py                  # A2C experiment runner
+├── run_ppo.py                  # PPO experiment runner
+├── run_sac.py                  # SAC experiment runner
 ├── common/
 │   ├── env_factory.py          # Environment creation and selection
 │   ├── env_wrappers.py         # Environment wrappers
@@ -39,7 +39,7 @@ project-root/
 │   ├── ppo.json                # PPO hyperparameters and success thresholds
 │   └── sac.json                # SAC hyperparameters and success thresholds
 ├── tests/
-│   └── test_env_wrappers.py    # Unit tests
+│   └── test_wrappers.py        # Unit tests
 ├── saved_models/               # Trained model checkpoints
 ├── recorded_videos/            # Recorded episode videos
 ├── results/                    # JSON results summaries
@@ -53,14 +53,13 @@ project-root/
 
 - Python 3.8 or higher
 - CUDA-capable GPU (optional, for faster training)
-- ffmpeg (for video recording)
 
 ### Setup
 
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
-cd rl-experiment-pipeline
+cd Policy_Gradient
 ```
 
 2. Install dependencies:
@@ -81,13 +80,13 @@ Run experiments with default settings:
 
 ```bash
 # A2C on CartPole
-python run_a2c_experiments.py --env CartPole-v1
+python run_a2c.py --env CartPole-v1
 
 # PPO on Acrobot
-python run_ppo_experiments.py --env Acrobot-v1
+python run_ppo.py --env Acrobot-v1
 
 # SAC on Pendulum
-python run_sac_experiments.py --env Pendulum-v1
+python run_sac.py --env Pendulum-v1
 ```
 
 ### Advanced Options
@@ -104,7 +103,7 @@ All experiment scripts support the following arguments:
 **Example:**
 
 ```bash
-python run_a2c_experiments.py \
+python run_a2c.py \
     --env CartPole-v1 \
     --project my-rl-research \
     --num-test-runs 200 \
@@ -121,9 +120,9 @@ Training will stop early if the agent achieves the success threshold during eval
 | Environment | Success Threshold | Max Episodes |
 |------------|------------------|--------------|
 | CartPole-v1 | 475.0 | 1000 |
-| Acrobot-v1 | -100.0 | 2000 |
-| MountainCar-v0 | -110.0 | 3000 |
-| Pendulum-v1 | -200.0 | 1500 |
+| Acrobot-v1 | -100.0 | 1000 |
+| MountainCar-v0 | -110.0 | 1000 |
+| Pendulum-v1 | -200.0 | 1000 |
 
 These can be customized in the config files (`configs/*.json`).
 
@@ -335,66 +334,6 @@ pytest tests/test_env_wrappers.py -v
 - Environment wrapper action space conversions
 - Discrete-continuous mapping correctness
 - Episode execution with wrappers
-
-## Example Workflows
-
-### 1. Quick Test Run
-
-For testing the pipeline quickly:
-
-```bash
-# Edit configs/a2c.json to reduce max_episodes
-# Change "max_episodes": 2000 to "max_episodes": 200
-
-python run_a2c_experiments.py --env CartPole-v1
-```
-
-### 2. Comparing Algorithms
-
-```bash
-python run_a2c_experiments.py --env CartPole-v1 --project cartpole-comparison
-python run_ppo_experiments.py --env CartPole-v1 --project cartpole-comparison
-python run_sac_experiments.py --env CartPole-v1 --project cartpole-comparison
-```
-
-### 3. Longer Sleep for Stability
-
-```bash
-python run_ppo_experiments.py --env Acrobot-v1 --sleep-time 10.0
-```
-
-## Troubleshooting
-
-### Common Issues
-
-**1. WandB rate limiting:**
-```bash
-# Increase sleep time
-python run_a2c_experiments.py --env CartPole-v1 --sleep-time 10.0
-```
-
-**2. Out of memory:**
-- Reduce `buffer_size` in SAC config
-- Reduce `batch_size` in configs
-- Use smaller `n_steps` for PPO/A2C
-
-**3. Video recording fails:**
-```bash
-# Install ffmpeg
-sudo apt-get install ffmpeg  # Ubuntu
-brew install ffmpeg          # macOS
-```
-
-**4. Import errors:**
-```bash
-export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-```
-
-**5. CUDA out of memory:**
-```python
-# Edit agent files to use CPU
-device='cpu'  # Instead of 'cuda'
-```
 
 ## Performance Tips
 
