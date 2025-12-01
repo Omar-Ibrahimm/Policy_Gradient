@@ -1,0 +1,65 @@
+{
+  "algorithm": "SAC",
+  "max_episodes": 2000,
+  "eval_freq": 50,
+  "eval_episodes": 10,
+  "hyperparameters": {
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "tau": 0.005,
+    "batch_size": 256,
+    "buffer_size": 100000,
+    "learning_starts": 1000,
+    "train_freq": 1,
+    "gradient_steps": 1
+  },
+  "tunable_params": {
+    "learning_rate": {
+      "high_multiplier": 2.0,
+      "low_multiplier": 0.5
+    },
+    "gamma": {
+      "high_value": 0.999,
+      "low_value": 0.95,
+      "type": "absolute"
+    },
+    "tau": {
+      "high_multiplier": 2.0,
+      "low_multiplier": 0.5
+    },
+    "batch_size": {
+      "high_value": 512,
+      "low_value": 128,
+      "type": "int_absolute"
+    },
+    "buffer_size": {
+      "high_value": 200000,
+      "low_value": 50000,
+      "type": "int_absolute"
+    }
+  },
+  "env_overrides": {
+    "CartPole-v1": {
+      "success_threshold": 475.0,
+      "max_episodes": 1000,
+      "learning_starts": 100,
+      "buffer_size": 50000
+    },
+    "Acrobot-v1": {
+      "success_threshold": -100.0,
+      "max_episodes": 1000,
+      "learning_starts": 100,
+      "buffer_size": 50000
+    },
+    "MountainCar-v0": {
+      "success_threshold": -110.0,
+      "max_episodes": 1000,
+      "learning_starts": 100,
+      "buffer_size": 50000
+    },
+    "Pendulum-v1": {
+      "success_threshold": -200.0,
+      "max_episodes": 1000
+    }
+  }
+}

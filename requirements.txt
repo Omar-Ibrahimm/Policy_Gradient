@@ -1,0 +1,29 @@
+# RL Experiment Pipeline Requirements
+# Tested with Python 3.8+
+
+# Deep Learning
+torch>=2.1.0
+numpy>=1.24.3
+
+# Gym/Gymnasium
+gymnasium>=0.29.1
+gymnasium[classic-control]>=0.29.1
+
+# Logging and tracking
+wandb>=0.16.0
+tqdm>=4.66.1
+
+# Video recording
+moviepy>=1.0.3
+opencv-python>=4.8.1.78
+
+# Plotting
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Utilities
+pandas>=2.1.1
+
+# Testing
+pytest>=7.4.3
+pytest-cov>=4.1.0

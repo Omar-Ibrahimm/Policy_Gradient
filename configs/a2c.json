@@ -1,0 +1,56 @@
+{
+  "algorithm": "A2C",
+  "max_episodes": 2000,
+  "eval_freq": 50,
+  "eval_episodes": 10,
+  "hyperparameters": {
+    "learning_rate": 0.0007,
+    "gamma": 0.99,
+    "entropy_coef": 0.01,
+    "value_loss_coef": 0.5,
+    "n_steps": 5
+  },
+  "tunable_params": {
+    "learning_rate": {
+      "high_multiplier": 2.0,
+      "low_multiplier": 0.5
+    },
+    "gamma": {
+      "high_value": 0.999,
+      "low_value": 0.95,
+      "type": "absolute"
+    },
+    "entropy_coef": {
+      "high_multiplier": 2.0,
+      "low_multiplier": 0.5
+    },
+    "value_loss_coef": {
+      "high_multiplier": 2.0,
+      "low_multiplier": 0.5
+    },
+    "n_steps": {
+      "high_multiplier": 2,
+      "low_multiplier": 0.5,
+      "type": "int",
+      "min_value": 1
+    }
+  },
+  "env_overrides": {
+    "CartPole-v1": {
+      "success_threshold": 475.0,
+      "max_episodes": 1000
+    },
+    "Acrobot-v1": {
+      "success_threshold": -100.0,
+      "max_episodes": 1000
+    },
+    "MountainCar-v0": {
+      "success_threshold": -110.0,
+      "max_episodes": 1000
+    },
+    "Pendulum-v1": {
+      "success_threshold": -200.0,
+      "max_episodes": 1000
+    }
+  }
+}
