@@ -1,0 +1,10 @@
+{
+  "train_final_avg_reward": -89.19,
+  "test_mean_reward": -92.11,
+  "test_std_reward": 49.435391168675906,
+  "test_mean_length": 93.1,
+  "test_std_length": 49.35291278131413,
+  "variant": "entropy_coef_high",
+  "algo": "PPO",
+  "env": "Acrobot-v1"
+}

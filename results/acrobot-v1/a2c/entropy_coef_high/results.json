@@ -1,0 +1,10 @@
+{
+  "train_final_avg_reward": -90.69,
+  "test_mean_reward": -84.27,
+  "test_std_reward": 19.92026857248667,
+  "test_mean_length": 85.27,
+  "test_std_length": 19.92026857248667,
+  "variant": "entropy_coef_high",
+  "algo": "A2C",
+  "env": "Acrobot-v1"
+}

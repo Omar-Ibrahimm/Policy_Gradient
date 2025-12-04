@@ -1,0 +1,10 @@
+{
+  "train_final_avg_reward": -196.02,
+  "test_mean_reward": -200.0,
+  "test_std_reward": 0.0,
+  "test_mean_length": 200.0,
+  "test_std_length": 0.0,
+  "variant": "gae_lambda_high",
+  "algo": "PPO",
+  "env": "MountainCar-v0"
+}

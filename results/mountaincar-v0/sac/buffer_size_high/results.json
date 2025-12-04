@@ -1,0 +1,10 @@
+{
+  "train_final_avg_reward": -124.24,
+  "test_mean_reward": -119.99,
+  "test_std_reward": 30.933313757177714,
+  "test_mean_length": 119.99,
+  "test_std_length": 30.933313757177714,
+  "variant": "buffer_size_high",
+  "algo": "SAC",
+  "env": "MountainCar-v0"
+}

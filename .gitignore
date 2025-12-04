@@ -41,7 +41,6 @@ ENV/
 # Experiment Outputs (comment out if you want to track these)
 saved_models/
 recorded_videos/
-results/
 wandb/
 
 # Logs

@@ -1,0 +1,10 @@
+{
+  "train_final_avg_reward": -1412.4547305538854,
+  "test_mean_reward": -1492.6296481201186,
+  "test_std_reward": 190.81581535308996,
+  "test_mean_length": 200.0,
+  "test_std_length": 0.0,
+  "variant": "gamma_low",
+  "algo": "A2C",
+  "env": "Pendulum-v1"
+}

@@ -1,0 +1,10 @@
+{
+  "train_final_avg_reward": 77.18,
+  "test_mean_reward": 130.42,
+  "test_std_reward": 5.089557937581613,
+  "test_mean_length": 130.42,
+  "test_std_length": 5.089557937581613,
+  "variant": "baseline",
+  "algo": "PPO",
+  "env": "CartPole-v1"
+}

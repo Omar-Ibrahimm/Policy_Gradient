@@ -1,0 +1,10 @@
+{
+  "train_final_avg_reward": -82.81,
+  "test_mean_reward": -84.13,
+  "test_std_reward": 26.695188705083165,
+  "test_mean_length": 85.13,
+  "test_std_length": 26.695188705083165,
+  "variant": "gae_lambda_low",
+  "algo": "PPO",
+  "env": "Acrobot-v1"
+}

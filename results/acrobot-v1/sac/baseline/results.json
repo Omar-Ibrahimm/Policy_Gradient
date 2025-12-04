@@ -1,0 +1,10 @@
+{
+  "train_final_avg_reward": -117.51,
+  "test_mean_reward": -90.77,
+  "test_std_reward": 19.785780247440332,
+  "test_mean_length": 91.77,
+  "test_std_length": 19.785780247440332,
+  "variant": "baseline",
+  "algo": "SAC",
+  "env": "Acrobot-v1"
+}
